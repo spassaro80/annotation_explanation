@@ -1,0 +1,68 @@
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<div class="table-responsive">
+  <table id="basic-datatable" class="table table-centered table-borderless table-hover w-100 dt-responsive nowrap dataTable no-footer dtr-inline collapsed">
+    <thead class="table-light">
+      <tr>
+        <th class="all" style="width: 20px;">
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="customCheck1">
+            <label class="form-check-label" for="customCheck1">&nbsp;</label>
+          </div>
+        </th>
+        <th>Nome</th>
+        <th>Data di Nascita</th>
+        <th>Email</th>
+        <th>Telefono</th>
+        <th>Indirizzo</th>
+        <th>CAP</th>
+        <th>Città</th>
+        <th>Amount</th>
+        <th>Azione</th>
+      </tr>
+    </thead>
+
+    <tbody>
+
+      {% for row in donor %}
+      <tr>
+        <td><div class="form-check">
+          <input type="checkbox" class="form-check-input" id="customCheck{{forloop.counter}}">
+          <label class="form-check-label" for="customCheck{{forloop.counter}}">&nbsp;</label>
+        </div></td>
+        <td class="table-user"><a href="" class="text-body fw-semibold"> {{row.first_name}} {{row.last_name}} </a>
+          <!-- <br/>
+          <span class="text-warning mdi mdi-star">Gold</span> -->
+        </td>
+        <td>{{row.date_of_birth}}</td>
+        <td>{{row.email}}</td>
+        <td>{{row.mobile_phone}}</td>
+        <td>{{row.address}}</td>
+        <td>{{row.city.cap}}</td>
+        <td>{{row.city}}</td>
+
+        <td>{{row.tot_donations}}</td>
+
+        <!--<td>{{row.donations.all.count}}</td>-->
+
+        <td><a href="" class="action-icon"> <i class="mdi mdi-eye"></i></a>
+          <a href="" class="action-icon"> <i class="mdi mdi-square-edit-outline"></i></a></td>
+
+        </tr>
+        {% endfor %}
+
+
+
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
+
